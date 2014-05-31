@@ -10,6 +10,8 @@ class PythonMecab < Formula
   depends_on 'mecab-ipadic'
 
   def install
-    system 'CFLAGS=-Qunused-arguments' 'CPPFLAGS=-Qunused-arguments' 'python', 'setup.py', 'install'
+    ENV['CFLAGS'] = '-Qunused-arguments'
+    ENV['CPPFLAGS'] = '-Qunused-arguments'
+    system 'python', 'setup.py', 'install'
   end
 end
